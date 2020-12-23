@@ -132,4 +132,5 @@ acc = get_acc_preds(robust_classifier, x_test_adv_robust, y_test)
 print("\nAccuracy of robust classifier on adversarial test set: %.2f%%" % (acc * 100))
 
 
+# Plot robust classifier accuracy over attack strength for multiple specified attacks (in this case fgsm, bim, pgd)
 plot_attacks_acc(robust_classifier, x_test, y_test, path_fig, dataset, 'robust_vgg16_attacks_acc')
