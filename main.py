@@ -20,7 +20,7 @@ from utils import get_acc_preds, plot_attacks_acc
 dataset = input('Enter dataset to be used (brain_mri, mnist, cifar, ddsm, lidc)\n')
 
 # load in dataset using load_dataset function
-x_train, y_train, x_test, y_test = load_dataset(dataset)
+x_train, y_train, x_test, y_test = load_dataset(dataset, path)
 
 # query user for adversarial attack to use for generating adversarial test set
 attack_type = input('Enter attack to be used (fgsm, pgd, bim)\n')
