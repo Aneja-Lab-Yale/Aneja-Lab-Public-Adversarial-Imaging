@@ -22,7 +22,7 @@ from utils import get_acc_preds, plot_attacks_acc
 dataset = input('Enter dataset to be used (brain_mri, mnist, cifar, ddsm, lidc)\n')
 
 # load in dataset
-x_train, y_train, x_test, y_test = load_dataset(dataset, path)
+x_train, y_train, x_test, y_test = load_dataset(dataset, path, aug=True)
 
 # query user for adversarial attack to use for generating adversarial test set
 attack_type = input('Enter attack to be used (fgsm, pgd, bim)\n')
@@ -130,7 +130,6 @@ x_test_adv_robust = attacker_robust.generate(x_test)
 # evaluate robust classifier on adversarial test set
 acc = get_acc_preds(robust_classifier, x_test_adv_robust, y_test)
 print("\nAccuracy of robust classifier on adversarial test set: %.2f%%" % (acc * 100))
-
 
 # Plot robust classifier accuracy over attack strength for multiple specified attacks (in this case fgsm, bim, pgd)
 plot_attacks_acc(robust_classifier, x_test, y_test, path_fig, dataset, 'robust_vgg16_attacks_acc')
