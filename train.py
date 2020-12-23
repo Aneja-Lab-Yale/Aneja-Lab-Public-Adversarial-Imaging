@@ -17,7 +17,7 @@ from tensorflow.keras.callbacks import EarlyStopping
 dataset = input('Enter dataset to be used (brain_mri, mnist, cifar, ddsm, lidc)\n')
 
 # load dataset
-x_train, y_train, x_test, y_test = load_dataset(dataset, path, aug=False)
+x_train, y_train, x_test, y_test = load_dataset(dataset, path, aug=True)
 
 # train model
 if dataset == 'mnist':
