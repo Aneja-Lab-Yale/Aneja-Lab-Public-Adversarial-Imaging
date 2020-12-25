@@ -20,7 +20,7 @@ def load_dataset(dataset, path, aug):
     path = path + dataset + '/'
     if dataset == 'brain_mri':
         # # read in brain mri dataset
-        if aug == 'False':
+        if aug == False:
             # use un-augmented dataset for training
             normal_images = np.load(path + '2000_normal_images.npy')
             normal_labels = np.load(path + '2000_normal_labels.npy')
@@ -33,7 +33,7 @@ def load_dataset(dataset, path, aug):
             # convert class vectors to binary class matrices
             y_train = tf.keras.utils.to_categorical(y_train, 2)
             y_test = tf.keras.utils.to_categorical(y_test, 2)
-        elif aug == 'True':
+        elif aug == True:
         # read in augmented dataset
             x_train = np.load(path + 'x_train_aug.npy')
             x_train = np.squeeze(x_train, axis=1)
@@ -59,7 +59,7 @@ def load_dataset(dataset, path, aug):
         y_test = tf.keras.utils.to_categorical(y_test, 10)
 
     elif dataset == 'ddsm':
-        if aug == 'False':
+        if aug == False:
             # read in CBIS-DDSM dataset
             x_train = np.load(path + 'CBIS_DDSM_x.npy')
             y_train = np.load(path + 'CBIS_DDSM_y.npy')
@@ -68,7 +68,7 @@ def load_dataset(dataset, path, aug):
             y_train = tf.keras.utils.to_categorical(y_train, 2)
             y_test = tf.keras.utils.to_categorical(y_test, 2)
 
-        elif aug == 'True':
+        elif aug == True:
             x_train = np.load(path + 'x_train_aug.npy')
             x_train = np.squeeze(x_train, axis=1)
             y_train = np.load(path + 'y_train_aug.npy')
@@ -85,7 +85,7 @@ def load_dataset(dataset, path, aug):
         y_test = tf.keras.utils.to_categorical(y_test, 10)
 
     elif dataset == 'lidc':
-        if aug == 'False':
+        if aug == False:
             # read in LIDC dataset
             x = np.load(path + 'x_balanced.npy')
             y = np.load(path + 'y_balanced.npy')
@@ -96,7 +96,7 @@ def load_dataset(dataset, path, aug):
             np.save(path + 'y_train.npy', y_train)
             np.save(path + 'y_test.npy', y_test)
 
-        elif aug == 'True':
+        elif aug == True:
             x_train = np.load(path + 'x_train_aug.npy')
             x_train = np.squeeze(x_train, axis=1)
             y_train = np.load(path + 'y_train_aug.npy')
