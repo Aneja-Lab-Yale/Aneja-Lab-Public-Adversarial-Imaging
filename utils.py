@@ -9,11 +9,13 @@
 # import dependencies
 import numpy as np
 import cv2
-import matplotlib.pyplot as plt
 from configs import path_csv
 from art.attacks.evasion import FastGradientMethod, BasicIterativeMethod, SaliencyMapMethod, ProjectedGradientDescent
 import csv
 import os
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as plt
 
 
 # Calculates accuracy of classifier model on labeled image dataset
@@ -269,3 +271,63 @@ def plot_tv(
     fig6.legend(['Train', 'Validation'], loc=1, borderaxespad=.5)
     #fig.grid('True')
     fig6.savefig((os.path.join(path, (filename + '_loss_' + model_title + '.png'))))
+
+
+# creates plot comparing accuracy of original and robust classifiers over attack strength for 3 attack types
+# Employed (10/01/20)
+# Debugged (12/01/20)
+# Created by Marina Joel
+def plot_compare_acc(dataset):
+    '''
+    Description: This function takes in the name of the dataset ('mnist', 'cifar', 'ddsm', 'lidc', 'brain_mri')
+    and returns a plot of the model accuracies of both original classifer and robust classifier over attack strength
+    for fgsm, pgd, bim attacks
+    :param dataset: name (string) of dataset
+    :return: plot will be saved as a figure
+    '''
+    with open('/home/joelma/csv/' + dataset + '/vgg16_attacks_acc.csv', 'r') as f:
+        data_orig = list(csv.reader(f, delimiter=","))
+    with open('/home/joelma/csv/' + dataset + '/robust_vgg16_attacks_acc.csv', 'r') as f:
+        data_robust = list(csv.reader(f, delimiter=","))
+
+    if dataset == 'mnist':
+        step_size = 0.1
+    elif dataset == 'cifar':
+        step_size = 0.01
+    else:
+        step_size = 0.001
+
+    data_orig = np.array(data_orig, dtype=np.float)
+    eps = data_orig[:,0] / step_size
+    fgsm = 100 * data_orig[:,1]
+    pgd = 100 * data_orig[:,2]
+    bim = 100 * data_orig[:,3]
+
+    data_robust = np.array(data_robust, dtype=np.float)
+    eps = data_robust[:,0] / step_size
+    fgsm_robust = 100 * data_robust[:,1]
+    pgd_robust = 100 * data_robust[:,2]
+    bim_robust = 100 * data_robust[:,3]
+
+
+    fig, ax = plt.subplots()
+    ax.plot(eps, fgsm, 'b--', label='FGSM (original)')
+    ax.plot(eps, pgd, 'r--', label='PGD (original)')
+    ax.plot(eps, bim, 'g--', label='BIM (original)')
+
+    ax.plot(eps, fgsm_robust, 'blue', marker='^', label='FGSM (robust)')
+    ax.plot(eps, pgd_robust, 'red', marker='^', label='PGD (robust)')
+    ax.plot(eps, bim_robust, 'green', marker='^',  label='BIM (robust)')
+
+    legend = ax.legend(loc='upper right', shadow=True, fontsize='medium')
+    legend.get_frame().set_facecolor('#FFFFFF')
+    if dataset == 'mnist':
+        plt.xlabel('Perturbation (x ' + '$10^{-1}$' + ')')
+    elif dataset == 'cifar':
+        plt.xlabel('Perturbation (x ' + '$10^{-2}$' + ')')
+    else:
+        plt.xlabel('Perturbation (x ' + '$10^{-3}$' + ')')
+    plt.ylabel('Accuracy (%)')
+    plt.grid()
+    plt.savefig('/home/joelma/figures/' + dataset + '/compare_model_attacks_acc.png')
+    plt.clf()
