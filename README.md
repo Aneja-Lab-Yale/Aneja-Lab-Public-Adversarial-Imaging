@@ -15,5 +15,6 @@ In this project, we will investigate the robustness of existing medical DL model
 # How to Run
 1. Clone Repository
 3. Edit ```config.py``` to customize parameters 
-4. Run ``` train.py ``` 
-5. Run ``` main.py ```
+4. Run ``` train.py ``` to train DNN models for each classification task
+5. Run ``` main.py ``` for adversarial attacking experiments
+6. Run ```adv_trainer.py``` to apply PGD-based adversarial training to models
