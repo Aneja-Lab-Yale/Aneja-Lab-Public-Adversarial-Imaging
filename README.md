@@ -6,6 +6,7 @@ In this project, we will investigate the robustness of existing medical DL model
 - configs.py # Designates parameters for adversarial attack and training experiments
 - utils.py # Defines useful functions used in experiments
 - data_loader.py # Loads in desired training and test set, preprocesses data
+- data_generator.py # Performs data augmentations (flips, rotations) on medical datasets
 - models.py # Defines models (VGG-16 model)
 - train.py # Trains model on data
 - attacks.py # Creates adversarial attacks
@@ -17,7 +18,8 @@ In this project, we will investigate the robustness of existing medical DL model
 
 # How to Run
 1. Clone Repository
-3. Edit ```config.py``` to customize parameters 
+2. Edit ```config.py``` to customize parameters 
+3. Run ```data_generator.py``` to augment medical datasets
 4. Run ``` train.py ``` to train DNN models
 5. Run ``` main.py ``` for adversarial attacking experiments
 6. Run ```adv_trainer.py``` for adversarial training experiments
