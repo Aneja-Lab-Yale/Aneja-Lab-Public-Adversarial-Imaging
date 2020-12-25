@@ -15,7 +15,7 @@ from tensorflow.keras.models import load_model
 from data_loader import load_dataset
 from attacks import create_attack
 from configs import path_fig, epsilon, eps_step, path
-from utils import get_acc_preds, plot_attacks_acc
+from utils import get_acc_preds, plot_attacks_acc, plot_compare_acc
 
 
 # query user for dataset
@@ -133,3 +133,6 @@ print("\nAccuracy of robust classifier on adversarial test set: %.2f%%" % (acc *
 
 # Plot robust classifier accuracy over attack strength for multiple specified attacks (in this case fgsm, bim, pgd)
 plot_attacks_acc(robust_classifier, x_test, y_test, path_fig, dataset, 'robust_vgg16_attacks_acc')
+
+# Plot both originai classifier and robust classifier accuracy over attack strength
+plot_compare_acc(dataset)
