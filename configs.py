@@ -62,7 +62,7 @@ num_random_init = 20
 # num_random_init = 20
 
 
-# # ##### for brain_mets ####
+# # ##### for brain_mri ####
 # # epsilon : Maximum perturbation that the attacker can introduce
 # epsilon = 0.004
 # # eps_step : Attack step size/input variation at each iteration (for pgd, bim)
