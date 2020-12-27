@@ -35,6 +35,7 @@ def load_dataset(dataset, path, aug):
             y_test = tf.keras.utils.to_categorical(y_test, 2)
         elif aug == True:
         # read in augmented dataset
+            path = '/mys3bucket/' + dataset + '/'
             x_train = np.load(path + 'x_train_aug.npy')
             x_train = np.squeeze(x_train, axis=1)
             y_train = np.load(path + 'y_train_aug.npy')
@@ -95,6 +96,13 @@ def load_dataset(dataset, path, aug):
             np.save(path + 'x_test.npy', x_test)
             np.save(path + 'y_train.npy', y_train)
             np.save(path + 'y_test.npy', y_test)
+            x_train = np.load(path + 'x_train.npy')
+            y_train = np.load(path + 'y_train.npy')
+            x_test = np.load(path + 'x_test.npy')
+            y_test = np.load(path + 'y_test.npy')
+            # convert class vectors to binary class matrices
+            y_train = tf.keras.utils.to_categorical(y_train, 2)
+            y_test = tf.keras.utils.to_categorical(y_test, 2)
 
         elif aug == True:
             x_train = np.load(path + 'x_train_aug.npy')
@@ -103,7 +111,6 @@ def load_dataset(dataset, path, aug):
             y_train = np.squeeze(y_train, axis=1)
             x_test = np.load(path + 'x_test.npy')
             y_test = np.load(path + 'y_test.npy')
-
             # convert class vectors to binary class matrices
             y_test = tf.keras.utils.to_categorical(y_test, 2)
 
