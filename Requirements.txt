@@ -1,0 +1,20 @@
+# install necessary dependencies for Adversarial Imaging project
+
+##### Core scientific packages
+numpy==1.18.1
+matplotlib==3.2.1
+
+##### Deep Learning packages
+tensorflow==1.15.3
+# For GPU support, you must install CUDA, cuDNN and more
+# see tensorflow.org for detailed installation instructions.
+tensorflow-gpu==1.15.3
+
+##### Machine learning packages
+scikit-learn==0.22.2
+
+#### Adversarial robustness toolbox
+adversarial-robustness-toolbox==1.4.1
+
+#### Image manipulation
+opencv-python==4.2.0.32
