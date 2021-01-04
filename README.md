@@ -17,9 +17,10 @@ In this project, we will investigate the robustness of existing medical DL model
  ```
 
 # How to Run
-1. Clone Repository
-2. Edit ```config.py``` to customize parameters 
-3. Run ```data_generator.py``` to augment medical datasets
-4. Run ``` train.py ``` to train DNN models
-5. Run ``` main.py ``` for adversarial attacking experiments
-6. Run ```adv_trainer.py``` for adversarial training experiments
+1. Clone Repository from Github
+2. Install necessary dependencies
+3. Edit ```config.py``` to customize parameters 
+4. Run ```data_generator.py``` to augment medical datasets
+5. Run ``` train.py ``` to train DNN models
+6. Run ``` main.py ``` for adversarial attacking experiments
+7. Run ```adv_trainer.py``` for adversarial training experiments
