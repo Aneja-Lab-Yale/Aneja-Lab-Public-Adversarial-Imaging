@@ -19,7 +19,7 @@ In this project, we will investigate the robustness of existing medical DL model
 # How to Run
 1. Clone Repository from Github
 2. Install necessary dependencies ```python pip3 install -r Requirements.txt```
-3. Edit ```config.py``` to customize parameters 
+3. Edit ```configs.py``` to customize parameters 
 4. Run ```data_generator.py``` to augment medical datasets
 5. Run ``` train.py ``` to train DNN models
 6. Run ``` main.py ``` for adversarial attacking experiments
