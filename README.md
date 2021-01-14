@@ -12,6 +12,7 @@ In this project, we will investigate the robustness of existing medical DL model
 - attacks.py # Creates adversarial attacks
 - main.py # Applies attack on desired dataset and evaluates model accuracy on adversarial examples
 - adv_trainer.py # Applies PGD-based adversarial training to models
+- adv_sensitivity.py # Evaluates the adversarial susceptibility of each image to eliminate most vulnerable images, measures model accuracy on remaining dataset
 
 
  ```
@@ -24,3 +25,4 @@ In this project, we will investigate the robustness of existing medical DL model
 5. Run ``` train.py ``` to train DNN models
 6. Run ``` main.py ``` for adversarial attacking experiments
 7. Run ```adv_trainer.py``` for adversarial training experiments
+8. Run ```adv_sensitivity.py``` for adversarial sensitivity experiments
