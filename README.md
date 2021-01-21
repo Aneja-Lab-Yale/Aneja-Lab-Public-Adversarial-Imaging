@@ -1,6 +1,7 @@
 # Adversarial Attacks on Medical Deep Learning Models
 
 In this project, we will investigate the robustness of existing medical DL models by testing their performance on adversarial examples from various medical imaging datasets. We will use adversarial training to strengthen them against adversarial attacks. Some questions we will explore are 1) whether some imaging modalities are more susceptible to adversarial attacks than others; 2) how to use PGD-based adversarial training to increase model robustness; 3) whether image level adversarial susceptibility is a useful metric to improve model performance.
+
 # Code Flow
 ```
 - configs.py # Designates parameters for adversarial attack and training experiments
@@ -13,8 +14,6 @@ In this project, we will investigate the robustness of existing medical DL model
 - main.py # Applies attack on desired dataset and evaluates model accuracy on adversarial examples
 - adv_trainer.py # Applies PGD-based adversarial training to models
 - adv_sensitivity.py # Evaluates the adversarial susceptibility of each image to eliminate most vulnerable images, measures model accuracy on remaining dataset
-
-
  ```
 
 # How to Run
