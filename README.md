@@ -1,5 +1,7 @@
 # Adversarial Attacks on Medical Deep Learning Models
 
+Code accompanying the paper: Using Adversarial Images to Assess the Robustness of Deep Learning Models Trained on Diagnostic Images in Oncology. JCO Clin Cancer Inform. 2022 Feb;6:e2100170. https://ascopubs.org/doi/10.1200/CCI.21.00170
+
 In this project, we will investigate the robustness of existing medical DL models by testing their performance on adversarial examples from various medical imaging datasets. We will use adversarial training to strengthen them against adversarial attacks. Some questions we will explore are 1) whether some imaging modalities are more susceptible to adversarial attacks than others; 2) how to use PGD-based adversarial training to increase model robustness; 3) whether image level adversarial susceptibility is a useful metric to improve model performance.
 
 # Code Flow
